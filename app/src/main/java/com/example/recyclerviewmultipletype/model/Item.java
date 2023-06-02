@@ -60,21 +60,22 @@ public class Item {
 
     }
 
-    public void setItemVertical(int type, List<ItemVertical> itemVerticals){
+    public void setVertical(int type, List<ItemVertical> itemVerticals){
         this.type = type;
         this.itemVerticals = itemVerticals;
         this.itemHorizontals = null;
         this.itemMenus = null;
     }
-    public void setItemHorizontal(List<ItemHorizontal> itemHorizontals){
+
+    public void setHorizontal(List<ItemHorizontal> itemHorizontals){
         this.type = ItemAdapter.TYPE_HORIZONTAL;
         this.itemVerticals = null;
         this.itemHorizontals = itemHorizontals;
         this.itemMenus = null;
     }
 
-    public void setItemMenu(int type, List<ItemMenu> itemMenus){
-        this.type = type;
+    public void setMenu(List<ItemMenu> itemMenus){
+        this.type = ItemAdapter.TYPE_VERTICAL;
         this.itemVerticals = null;
         this.itemHorizontals = null;
         this.itemMenus = itemMenus;

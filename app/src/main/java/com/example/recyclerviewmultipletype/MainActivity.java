@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.recyclerviewmultipletype.adapter.ItemAdapter;
 import com.example.recyclerviewmultipletype.model.Item;
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item(ItemAdapter.TYPE_VERTICAL, itemVerticals, null, null));
 
         Item item = new Item();
-        item.setItemHorizontal(itemHorizontals);
+        item.setHorizontal(itemHorizontals);
         items.add(item);
 
         return items;
