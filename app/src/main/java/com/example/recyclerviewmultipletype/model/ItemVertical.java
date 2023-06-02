@@ -11,8 +11,8 @@ public class ItemVertical {
     public ItemVertical(String channelName, String title, String view, String time, int img, int avatar) {
         this.channelName = channelName;
         this.title = title;
-        this.view = view;
-        this.time = time;
+        this.view =" • " + view + " lượt xem • ";
+        this.time = time + " giờ trước";
         this.img = img;
         this.avatar = avatar;
     }

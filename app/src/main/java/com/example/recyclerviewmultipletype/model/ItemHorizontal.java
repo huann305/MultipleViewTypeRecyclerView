@@ -31,7 +31,7 @@ public class ItemHorizontal {
 
     public ItemHorizontal(String title, String view, int img) {
         this.title = title;
-        this.view = view;
+        this.view = view + " lượt xem";
         this.img = img;
     }
 }
