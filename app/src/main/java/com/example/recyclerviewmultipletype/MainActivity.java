@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.example.recyclerviewmultipletype.adapter.ItemAdapter;
 import com.example.recyclerviewmultipletype.model.Item;
 import com.example.recyclerviewmultipletype.model.ItemHorizontal;
+import com.example.recyclerviewmultipletype.model.ItemMenu;
 import com.example.recyclerviewmultipletype.model.ItemVertical;
 
 import java.util.ArrayList;
@@ -50,12 +51,27 @@ public class MainActivity extends AppCompatActivity {
         itemVerticals.add(new ItemVertical("Huấnn", "[Playlist 1 hour]\uD83D\uDD25lạc vào chốn... tình ca tình ta, gió, cold dont | Tổng hợp nhạc speed up cực relax", "1T", "1", R.drawable.c, R.drawable.g));
         itemVerticals.add(new ItemVertical("Huấnn", "Gió Lofi - JanK | Gió Nhẹ Sang Tôi Ngỡ Trời Xuân ♫ Nhạc Lofi Chill Buồn Hot TikTok", "1T", "1", R.drawable.d, R.drawable.h));
 
-        items.add(new Item(ItemAdapter.TYPE_HORIZONTAL, null, itemHorizontals));
-        items.add(new Item(ItemAdapter.TYPE_VERTICAL, itemVerticals, null));
-        items.add(new Item(ItemAdapter.TYPE_HORIZONTAL, null, itemHorizontals));
-        items.add(new Item(ItemAdapter.TYPE_VERTICAL, itemVerticals, null));
-        items.add(new Item(ItemAdapter.TYPE_HORIZONTAL, null, itemHorizontals));
-        items.add(new Item(ItemAdapter.TYPE_VERTICAL, itemVerticals, null));
+        List<ItemMenu> itemMenus = new ArrayList<>();
+        itemMenus.add(new ItemMenu("Tất cả"));
+        itemMenus.add(new ItemMenu("Đề xuất mới"));
+        itemMenus.add(new ItemMenu("Âm nhạc"));
+        itemMenus.add(new ItemMenu("Danh sách kết hợp"));
+        itemMenus.add(new ItemMenu("Trò chơi"));
+        itemMenus.add(new ItemMenu("Trực tiếp"));
+        itemMenus.add(new ItemMenu("Học tập"));
+        itemMenus.add(new ItemMenu("Hoạt hình"));
+
+        items.add(new Item(ItemAdapter.TYPE_MENU, itemMenus));
+        items.add(new Item(ItemAdapter.TYPE_HORIZONTAL, null, itemHorizontals, null));
+        items.add(new Item(ItemAdapter.TYPE_VERTICAL, itemVerticals, null, null));
+        items.add(new Item(ItemAdapter.TYPE_HORIZONTAL, null, itemHorizontals, null));
+        items.add(new Item(ItemAdapter.TYPE_VERTICAL, itemVerticals, null, null));
+        items.add(new Item(ItemAdapter.TYPE_HORIZONTAL, null, itemHorizontals, null));
+        items.add(new Item(ItemAdapter.TYPE_VERTICAL, itemVerticals, null, null));
+
+        Item item = new Item();
+        item.setItemHorizontal(itemHorizontals);
+        items.add(item);
 
         return items;
     }

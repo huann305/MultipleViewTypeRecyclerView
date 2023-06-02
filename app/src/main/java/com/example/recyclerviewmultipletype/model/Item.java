@@ -1,5 +1,7 @@
 package com.example.recyclerviewmultipletype.model;
 
+import com.example.recyclerviewmultipletype.adapter.ItemAdapter;
+
 import java.util.List;
 
 public class Item {
@@ -7,6 +9,16 @@ public class Item {
     private int type;
     private List<ItemVertical> itemVerticals;
     private List<ItemHorizontal> itemHorizontals;
+
+    public List<ItemMenu> getItemMenus() {
+        return itemMenus;
+    }
+
+    public void setItemMenus(List<ItemMenu> itemMenus) {
+        this.itemMenus = itemMenus;
+    }
+
+    private List<ItemMenu> itemMenus;
 
     public int getType() {
         return type;
@@ -32,9 +44,40 @@ public class Item {
         this.itemHorizontals = itemHorizontals;
     }
 
-    public Item(int type, List<ItemVertical> itemVerticals, List<ItemHorizontal> itemHorizontals) {
+    public Item(int type, List<ItemVertical> itemVerticals, List<ItemHorizontal> itemHorizontals, List<ItemMenu> itemMenus) {
         this.type = type;
         this.itemVerticals = itemVerticals;
         this.itemHorizontals = itemHorizontals;
+        this.itemMenus = itemMenus;
     }
+    public Item(int type, List<ItemMenu> itemMenus) {
+        this.type = type;
+        this.itemVerticals = null;
+        this.itemHorizontals = null;
+        this.itemMenus = itemMenus;
+    }
+    public Item() {
+
+    }
+
+    public void setItemVertical(int type, List<ItemVertical> itemVerticals){
+        this.type = type;
+        this.itemVerticals = itemVerticals;
+        this.itemHorizontals = null;
+        this.itemMenus = null;
+    }
+    public void setItemHorizontal(List<ItemHorizontal> itemHorizontals){
+        this.type = ItemAdapter.TYPE_HORIZONTAL;
+        this.itemVerticals = null;
+        this.itemHorizontals = itemHorizontals;
+        this.itemMenus = null;
+    }
+
+    public void setItemMenu(int type, List<ItemMenu> itemMenus){
+        this.type = type;
+        this.itemVerticals = null;
+        this.itemHorizontals = null;
+        this.itemMenus = itemMenus;
+    }
+
 }

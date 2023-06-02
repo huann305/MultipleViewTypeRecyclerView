@@ -18,6 +18,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     public static final int TYPE_HORIZONTAL = 1;
     public static final int TYPE_VERTICAL = 2;
+    public static final int TYPE_MENU = 3;
     List<Item> items;
     Context context;
 
@@ -44,6 +45,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         Item item = items.get(position);
         if (item == null) return;
 
+        if(TYPE_VERTICAL == holder.getItemViewType()){
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
+            holder.rvItem.setLayoutManager(linearLayoutManager);
+            holder.rvItem.setFocusable(false);
+
+            ItemVerticalAdapter itemVerticalAdapter = new ItemVerticalAdapter(item.getItemVerticals());
+            holder.rvItem.setAdapter(itemVerticalAdapter);
+        }
 
         if(TYPE_HORIZONTAL == holder.getItemViewType()){
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
@@ -54,13 +63,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             holder.rvItem.setAdapter(itemHorizontalAdapter);
         }
 
-        if(TYPE_VERTICAL == holder.getItemViewType()){
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
+
+        if(TYPE_MENU == holder.getItemViewType()){
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
             holder.rvItem.setLayoutManager(linearLayoutManager);
             holder.rvItem.setFocusable(false);
 
-            ItemVerticalAdapter itemVerticalAdapter = new ItemVerticalAdapter(item.getItemVerticals());
-            holder.rvItem.setAdapter(itemVerticalAdapter);
+            MenuAdapter menuAdapter = new MenuAdapter(item.getItemMenus());
+            holder.rvItem.setAdapter(menuAdapter);
         }
     }
 

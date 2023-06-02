@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/txt_title"
         android:text="List speed up"
+        android:layout_marginEnd="20dp"
         android:ellipsize="end"
         android:maxLines="2"
         android:layout_marginTop="10dp"
@@ -31,6 +32,18 @@
         android:layout_below="@+id/img_image"
         android:textSize="24sp"
         android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⋮"
+        android:textStyle="bold"
+        android:textSize="27dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#878787"
+        android:layout_below="@+id/img_image"
+        android:layout_alignParentEnd="true"/>
 
     <TextView
         android:id="@+id/txt_channel_name"
