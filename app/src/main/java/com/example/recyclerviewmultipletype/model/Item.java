@@ -50,35 +50,21 @@ public class Item {
         this.itemHorizontals = itemHorizontals;
         this.itemMenus = itemMenus;
     }
-    public Item(int type, List<ItemMenu> itemMenus) {
-        this.type = type;
-        this.itemVerticals = null;
-        this.itemHorizontals = null;
-        this.itemMenus = itemMenus;
-    }
     public Item() {
 
     }
 
-    public void setVertical(int type, List<ItemVertical> itemVerticals){
-        this.type = type;
-        this.itemVerticals = itemVerticals;
-        this.itemHorizontals = null;
-        this.itemMenus = null;
+    public Item setHorizontal(List<ItemHorizontal> itemHorizontals){
+        return new Item(ItemAdapter.TYPE_HORIZONTAL, null, itemHorizontals, null);
     }
 
-    public void setHorizontal(List<ItemHorizontal> itemHorizontals){
-        this.type = ItemAdapter.TYPE_HORIZONTAL;
-        this.itemVerticals = null;
-        this.itemHorizontals = itemHorizontals;
-        this.itemMenus = null;
+    public Item setVertical(List<ItemVertical> itemVerticals){
+        return new Item(ItemAdapter.TYPE_VERTICAL, itemVerticals, null, null);
     }
 
-    public void setMenu(List<ItemMenu> itemMenus){
-        this.type = ItemAdapter.TYPE_VERTICAL;
-        this.itemVerticals = null;
-        this.itemHorizontals = null;
-        this.itemMenus = itemMenus;
+
+    public Item setMenu(List<ItemMenu> itemMenus){
+        return new Item(ItemAdapter.TYPE_MENU, null, null, itemMenus);
     }
 
 }

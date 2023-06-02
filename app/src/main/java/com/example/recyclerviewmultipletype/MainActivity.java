@@ -1,10 +1,12 @@
 package com.example.recyclerviewmultipletype;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -21,12 +23,18 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView rvMain;
     ItemAdapter itemAdapter;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("YouTube");
+        toolbar.setNavigationIcon(R.drawable.youtube);
+
+        setSupportActionBar(toolbar);
         rvMain = findViewById(R.id.rv_main);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         itemAdapter = new ItemAdapter(this, getListData());
@@ -63,18 +71,21 @@ public class MainActivity extends AppCompatActivity {
         itemMenus.add(new ItemMenu("Học tập"));
         itemMenus.add(new ItemMenu("Hoạt hình"));
 
-        items.add(new Item(ItemAdapter.TYPE_MENU, itemMenus));
-        items.add(new Item(ItemAdapter.TYPE_HORIZONTAL, null, itemHorizontals, null));
-        items.add(new Item(ItemAdapter.TYPE_VERTICAL, itemVerticals, null, null));
-        items.add(new Item(ItemAdapter.TYPE_HORIZONTAL, null, itemHorizontals, null));
-        items.add(new Item(ItemAdapter.TYPE_VERTICAL, itemVerticals, null, null));
-        items.add(new Item(ItemAdapter.TYPE_HORIZONTAL, null, itemHorizontals, null));
-        items.add(new Item(ItemAdapter.TYPE_VERTICAL, itemVerticals, null, null));
+        items.add(new Item().setMenu(itemMenus));
+        items.add(new Item().setHorizontal(itemHorizontals));
+        items.add(new Item().setVertical(itemVerticals));
+        items.add(new Item().setHorizontal(itemHorizontals));
+        items.add(new Item().setVertical(itemVerticals));
+        items.add(new Item().setHorizontal(itemHorizontals));
+        items.add(new Item().setVertical(itemVerticals));
 
-        Item item = new Item();
-        item.setHorizontal(itemHorizontals);
-        items.add(item);
 
         return items;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Share"
+        android:id="@+id/item_share"
+        android:icon="@drawable/baseline_screen_share_24"
+        app:showAsAction="always"/>
+
+    <item
+        android:title="Noti"
+        android:id="@+id/item_noti"
+        android:icon="@drawable/baseline_notifications_24"
+        app:showAsAction="always"/>
+    <item
+        android:title="Search"
+        android:id="@+id/item_search"
+        android:icon="@drawable/baseline_search_24"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always"/>
+
+    <item
+        android:title="Avatar"
+        android:id="@+id/item_avatar"
+        android:icon="@drawable/baseline_account_circle_24"
+        app:showAsAction="always"/>
+</menu>
