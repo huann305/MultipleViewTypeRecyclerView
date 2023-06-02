@@ -18,6 +18,7 @@
         android:title="Search"
         android:id="@+id/item_search"
         android:icon="@drawable/baseline_search_24"
+        android:iconTint="@color/black"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always"/>
 
