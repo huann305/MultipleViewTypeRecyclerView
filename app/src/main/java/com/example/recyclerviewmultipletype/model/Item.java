@@ -9,6 +9,7 @@ public class Item {
     private int type;
     private List<ItemVertical> itemVerticals;
     private List<ItemHorizontal> itemHorizontals;
+    private List<ItemMenu> itemMenus;
 
     public List<ItemMenu> getItemMenus() {
         return itemMenus;
@@ -18,7 +19,6 @@ public class Item {
         this.itemMenus = itemMenus;
     }
 
-    private List<ItemMenu> itemMenus;
 
     public int getType() {
         return type;

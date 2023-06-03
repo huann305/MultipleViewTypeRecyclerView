@@ -1,12 +1,15 @@
 package com.example.recyclerviewmultipletype;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -35,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.youtube);
 
         setSupportActionBar(toolbar);
+
+
         rvMain = findViewById(R.id.rv_main);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         itemAdapter = new ItemAdapter(this, getListData());
@@ -86,6 +91,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
+        SearchView searchView = (SearchView) menu.findItem(R.id.item_search).getActionView();
+
+        ImageView searchIcon = searchView.findViewById(androidx.appcompat.R.id.search_button);
+        searchIcon.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.baseline_search_24));
+
+        SearchView.SearchAutoComplete searchAutoComplete = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
+//        searchAutoComplete.setHintTextColor(getResources().getColor(android.R.color.darker_gray));
         return true;
     }
 }
