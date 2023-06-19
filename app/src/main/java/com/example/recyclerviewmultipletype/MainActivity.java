@@ -1,5 +1,6 @@
 package com.example.recyclerviewmultipletype;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -8,7 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -34,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("YouTube");
         toolbar.setNavigationIcon(R.drawable.youtube);
-
+        toolbar.setTitle("YouTube");
+        toolbar.setTitleTextAppearance(this,R.style.MyTitleStyle);
+        toolbar.setElevation(0);
+        toolbar.setTitleMarginStart(-100);
         setSupportActionBar(toolbar);
 
 
@@ -47,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         rvMain.setAdapter(itemAdapter);
     }
 
+    @NonNull
     private List<Item> getListData() {
         List<Item> items = new ArrayList<>();
 

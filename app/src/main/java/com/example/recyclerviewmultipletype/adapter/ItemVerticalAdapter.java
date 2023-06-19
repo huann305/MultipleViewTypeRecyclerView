@@ -37,7 +37,7 @@ public class ItemVerticalAdapter extends  RecyclerView.Adapter<ItemVerticalAdapt
         holder.imgImage.setImageResource(itemVertical.getImg());
         holder.imgAvatar.setImageResource(itemVertical.getAvatar());
         holder.txtTitle.setText(itemVertical.getTitle());
-        holder.txtChannleName.setText(itemVertical.getChannelName());
+        holder.txtChannelName.setText(itemVertical.getChannelName());
         holder.txtView.setText(itemVertical.getView());
         holder.txtTime.setText(itemVertical.getTime());
     }
@@ -52,14 +52,14 @@ public class ItemVerticalAdapter extends  RecyclerView.Adapter<ItemVerticalAdapt
 
         ImageView imgImage;
         ImageView imgAvatar;
-        TextView txtTitle, txtChannleName, txtView, txtTime;
+        TextView txtTitle, txtChannelName, txtView, txtTime;
 
         public ItemVerticalViewHolder(@NonNull View itemView) {
             super(itemView);
             imgImage = itemView.findViewById(R.id.img_image);
             imgAvatar = itemView.findViewById(R.id.img_avatar);
             txtTitle = itemView.findViewById(R.id.txt_title);
-            txtChannleName = itemView.findViewById(R.id.txt_channel_name);
+            txtChannelName = itemView.findViewById(R.id.txt_channel_name);
             txtView = itemView.findViewById(R.id.txt_view);
             txtTime = itemView.findViewById(R.id.txt_time);
         }
