@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Menu;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Switch;
@@ -21,6 +22,7 @@ import com.example.recyclerviewmultipletype.model.Item;
 import com.example.recyclerviewmultipletype.model.ItemHorizontal;
 import com.example.recyclerviewmultipletype.model.ItemMenu;
 import com.example.recyclerviewmultipletype.model.ItemVertical;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rvMain;
     ItemAdapter itemAdapter;
     Toolbar toolbar;
+    FloatingActionButton mActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +42,18 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.youtube);
         toolbar.setTitle("YouTube");
+        toolbar.setTitleTextAppearance(this, R.style.MyTitleStyle);
         toolbar.setTitleTextAppearance(this,R.style.MyTitleStyle);
         toolbar.setElevation(0);
-        toolbar.setTitleMarginStart(-100);
-        setSupportActionBar(toolbar);
 
+        setSupportActionBar(toolbar);
 
         rvMain = findViewById(R.id.rv_main);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         itemAdapter = new ItemAdapter(this, getListData());
         rvMain.setLayoutManager(linearLayoutManager);
+
+        rvMain.setHasFixedSize(true);
         rvMain.setAdapter(itemAdapter);
     }
 
@@ -102,8 +107,10 @@ public class MainActivity extends AppCompatActivity {
         ImageView searchIcon = searchView.findViewById(androidx.appcompat.R.id.search_button);
         searchIcon.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.baseline_search_24));
 
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+
         SearchView.SearchAutoComplete searchAutoComplete = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
 //        searchAutoComplete.setHintTextColor(getResources().getColor(android.R.color.darker_gray));
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 }

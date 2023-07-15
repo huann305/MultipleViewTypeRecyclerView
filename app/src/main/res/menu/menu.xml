@@ -6,13 +6,13 @@
     <item
         android:title="Share"
         android:id="@+id/item_share"
-        android:icon="@drawable/baseline_screen_share_24"
+        android:icon="@drawable/share_screen"
         app:showAsAction="always"/>
 
     <item
         android:title="Noti"
         android:id="@+id/item_noti"
-        android:icon="@drawable/baseline_notifications_24"
+        android:icon="@drawable/notify"
         app:showAsAction="always"/>
     <item
         android:title="Search"
